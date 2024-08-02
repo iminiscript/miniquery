@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiniQuery Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">Test 1</div>
+    <div class="test">Test 2</div>
+    <div class="test">Test 3</div>
+
+    <script src="mini.js"></script>
+    <script>
+        // Adding class
+        MQ('.test').AC('highlight');
+
+        // Removing class
+        MQ('.test').RC('highlight');
+
+        // Toggling class
+        MQ('.test').TC('highlight');
+
+        // Adding click event
+        MQ('.test').CLICK(function() {
+            alert('Element clicked!');
+        });
+    </script>
+</body>
+</html>
