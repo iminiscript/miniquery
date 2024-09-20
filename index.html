@@ -7,27 +7,60 @@
         .highlight {
             background-color: yellow;
         }
+        .red {
+            color: red;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="test">Test 1</div>
     <div class="test">Test 2</div>
     <div class="test">Test 3</div>
+    <button id="add-class-btn">Add Highlight Class</button>
+    <button id="remove-class-btn">Remove Highlight Class</button>
+    <button id="toggle-class-btn">Toggle Highlight Class</button>
+    <button id="hide-elements-btn">Hide Elements</button>
+    <button id="show-elements-btn">Show Elements</button>
 
     <script src="mini.js"></script>
     <script>
-        // Adding class
-        MQ('.test').AC('highlight');
+        // Add event listeners to buttons
+        MQ('#add-class-btn').click(function() {
+            MQ('.test').ac('highlight');
+        });
 
-        // Removing class
-        MQ('.test').RC('highlight');
+        MQ('#remove-class-btn').click(function() {
+            MQ('.test').rc('highlight');
+        });
 
-        // Toggling class
-        MQ('.test').TC('highlight');
+        MQ('#toggle-class-btn').click(function() {
+            MQ('.test').tc('highlight');
+        });
 
-        // Adding click event
-        MQ('.test').CLICK(function() {
-            MQ(this).AC('red');
+        MQ('#hide-elements-btn').click(function() {
+            MQ('.test').ac('hidden');
+        });
+
+        MQ('#show-elements-btn').click(function() {
+            MQ('.test').rc('hidden');
+        });
+
+        // Add click event to elements
+        MQ('.test').click(function() {
+            MQ(this).ac('red');
+        });
+
+        // Loop through elements (forEach)
+        MQ('.test').each(function(index, element) {
+            console.log(`Element ${index}: ${element.tagName}`);
+        });
+
+        // Loop through elements (for loop)
+        MQ('.test').loop(function(index, element) {
+            console.log(`Element ${index}: ${element.tagName}`);
         });
     </script>
 </body>

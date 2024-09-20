@@ -1,4 +1,4 @@
-(function(global) {
+(function(window) {
     // MiniQuery function
     function MiniQuery(selector) {
         if (!(this instanceof MiniQuery)) {
@@ -17,7 +17,7 @@
     }
 
     // Add class method
-    MiniQuery.prototype.AC = function(className) {
+    MiniQuery.prototype.ac = function(className) {
         this.elements.forEach(function(element) {
             element.classList.add(className);
         });
@@ -25,7 +25,7 @@
     };
 
     // Remove class method
-    MiniQuery.prototype.RC = function(className) {
+    MiniQuery.prototype.rc = function(className) {
         this.elements.forEach(function(element) {
             element.classList.remove(className);
         });
@@ -33,7 +33,7 @@
     };
 
     // Toggle class method
-    MiniQuery.prototype.TC = function(className) {
+    MiniQuery.prototype.tc = function(className) {
         this.elements.forEach(function(element) {
             element.classList.toggle(className);
         });
@@ -41,7 +41,7 @@
     };
 
     // Click event method
-    MiniQuery.prototype.CLICK = function(handler) {
+    MiniQuery.prototype.click = function(handler) {
         this.elements.forEach(function(element) {
             element.addEventListener('click', function(event) {
                 handler.call(element, event);
@@ -50,7 +50,23 @@
         return this;
     };
 
+    // Loop method (forEach equivalent)
+    MiniQuery.prototype.each = function(callback) {
+        this.elements.forEach(function(element, index) {
+            callback.call(element, index, element);
+        });
+        return this;
+    };
+
+    // Loop method (for loop equivalent)
+    MiniQuery.prototype.loop = function(callback) {
+        for (let i = 0; i < this.elements.length; i++) {
+            callback.call(this.elements[i], i, this.elements[i]);
+        }
+        return this;
+    };
+
     // Expose MiniQuery to the global object
-    global.MQ = MiniQuery;
+    window.MQ = MiniQuery;
 
 })(window);
