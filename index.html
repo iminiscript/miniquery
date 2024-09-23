@@ -18,7 +18,15 @@
 <body>
     <div class="test">Test 1</div>
     <div class="test">Test 2</div>
-    <div class="test">Test 3</div>
+    <div class="test">Test 4</div>
+    <div class="test">Test 5</div>
+    <div class="test">Test 6</div>
+    <div class="test">Test 7</div>
+    <div class="test8">Test 8</div>
+    <div class="test9">Test 9</div>
+    <div class="test10">Test 10</div>
+    <div class="test11">Test 11</div>
+    <div class="test12">Test 12</div>
     <button id="add-class-btn">Add Highlight Class</button>
     <button id="remove-class-btn">Remove Highlight Class</button>
     <button id="toggle-class-btn">Toggle Highlight Class</button>
@@ -29,7 +37,7 @@
     <script>
         // Add event listeners to buttons
         MQ('#add-class-btn').click(function() {
-            MQ('.test').ac('highlight');
+            MQ(this).ac('highlight');
         });
 
         MQ('#remove-class-btn').click(function() {
@@ -50,7 +58,7 @@
 
         // Add click event to elements
         MQ('.test').click(function() {
-            MQ(this).ac('red');
+            MQ(this).tc('red');
         });
 
         // Loop through elements (forEach)

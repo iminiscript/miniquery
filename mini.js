@@ -66,6 +66,32 @@
         return this;
     };
 
+    // Push method
+    MiniQuery.prototype.arr = function(element) {
+        // Ensure this.elements is an array (even if it's initially empty)
+        if (!Array.isArray(this.elements)) {
+            this.elements = [];
+        }
+
+        // Push the new element into the array
+        this.elements.push(element);
+
+        // Return 'this' for chaining
+        return this;
+    };
+
+    // Pop method
+    MiniQuery.prototype.rarr = function() {
+        // Ensure this.elements is an array (even if it's initially empty)
+        if (!Array.isArray(this.elements)) {
+            this.elements = [];
+        }
+
+        // Pop the last element from the array (returns undefined if empty)
+        return this.elements.pop();
+    };
+
+
     // Expose MiniQuery to the global object
     window.MQ = MiniQuery;
 
